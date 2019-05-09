@@ -72,3 +72,5 @@ def mover_torre(tablero, x_inicial, y_inicial, x_final, y_final):
             tab[x_inicial][y_inicial] = ' '
     return tab
 
+def mover_reina(tablero, x_inicial, y_inicial, x_final, y_final):
+    pass
