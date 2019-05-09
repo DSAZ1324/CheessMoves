@@ -30,7 +30,7 @@ def obtener_nombre_pieza(simbolo):
         tipo = 'blanco'
     retorno = simbolo.lower()
     if retorno == 'p':
-        return 'Peon '+tipo
+        return 'Peon ' + tipo
     elif retorno == 't':
         return 'Torre ' + tipo
     elif retorno == 'k':
@@ -58,19 +58,20 @@ def mover_torre(tablero, x_inicial, y_inicial, x_final, y_final):
     """
     tab = tablero.copy()
     if (x_inicial == x_final or y_inicial == y_final) and tab[x_inicial][y_inicial].lower() == 't':
-            if x_inicial != x_final:
-                for x in range(x_inicial +1, x_final):
-                    if tab[x][y_inicial] != ' ':
-                        raise ValueError('El camino no es valido')
+        if x_inicial != x_final:
+            for x in range(x_inicial + 1, x_final):
+                if tab[x][y_inicial] != ' ':
+                    raise ValueError('El camino no es valido')
             tab[x_final][y_inicial] = 't'
             tab[x_inicial][y_inicial] = ' '
-            if y_inicial != y_final:
-                for y in range(y_inicial +1, y_final):
-                    if tab[x_inicial][y] != ' ':
-                        raise ValueError('El camino no es valido')
+        if y_inicial != y_final:
+            for y in range(y_inicial + 1, y_final):
+                if tab[x_inicial][y] != ' ':
+                    raise ValueError('El camino no es valido')
             tab[x_inicial][y_final] = 't'
             tab[x_inicial][y_inicial] = ' '
     return tab
+
 
 def mover_reina(tablero, x_inicial, y_inicial, x_final, y_final):
     pass

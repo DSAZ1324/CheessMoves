@@ -17,21 +17,22 @@ class Test_movimientos(TestCase):
 
     def test_mover_torre(self):
         dado = [[['t', 'k', 'a', 'q', 'r', 'a', 'k', 't'],
-[' ', 'p', 'p', 'p', 'p', 'p', 'p', 'p'],
+['p', 'p', 'p', 'p', 'p', 'p', 'p', 'p'],
 [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
 [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
 [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
 [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
 ['P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'],
 ['T', 'K', 'A', 'R', 'Q', 'A', 'K', 'T']
-], 0, 0, 0, 2]
-        espero = [[' ', 'k', 'a', 'q', 'r', 'a', 'k', 't'],
-[' ', 'p', 'p', 'p', 'p', 'p', 'p', 'p'],
-['t', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+], 0, 0, 2, 0]
+        espero = [['t', 'k', 'a', 'q', 'r', 'a', 'k', 't'],
+['p', 'p', 'p', 'p', 'p', 'p', 'p', 'p'],
+[' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+[' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
 [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
 [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
 ['P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'],
 ['T', 'K', 'A', 'R', 'Q', 'A', 'K', 'T']
 ]
-        obtengo = mover_torre(dado[0], dado[1], dado[2] , dado[3], dado[4])
-        self.assertEquals(espero, obtengo)
+        obtengo = mover_torre(dado[0], dado[1], dado[2], dado[3], dado[4])
+        self.assertEqual(espero, obtengo)
