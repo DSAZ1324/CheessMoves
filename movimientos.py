@@ -57,21 +57,31 @@ def mover_torre(tablero, x_inicial, y_inicial, x_final, y_final):
     :return: list of list que representa un tablero final
     """
     tab = tablero.copy()
-    if (x_inicial == x_final or y_inicial == y_final) and tab[x_inicial][y_inicial].lower() == 't':
-        if x_inicial != x_final:
-            for x in range(x_inicial + 1, x_final):
+    if tab[y_inicial][x_inicial].lower() == 't':
+        if x_inicial == x_final and y_inicial != y_final:
+            if y_inicial < y_final:
+                y_auxiliar = y_inicial + 1
+            else:
+                y_auxiliar = y_inicial - 1
+            for y in range(y_auxiliar, y_final):
+                if tab[y][x_inicial] != ' ':
+                    raise Exception('No hay camino para mover la torre')
+        elif x_inicial != x_final and y_inicial == y_final:
+            if x_inicial < x_final:
+                x_auxiliar = x_inicial + 1
+            else:
+                x_auxiliar = x_inicial - 1
+            for x in range(x_auxiliar, x_final):
                 if tab[x][y_inicial] != ' ':
-                    raise ValueError('El camino no es valido')
-            tab[x_final][y_inicial] = 't'
-            tab[x_inicial][y_inicial] = ' '
-        if y_inicial != y_final:
-            for y in range(y_inicial + 1, y_final):
-                if tab[x_inicial][y] != ' ':
-                    raise ValueError('El camino no es valido')
-            tab[x_inicial][y_final] = 't'
-            tab[x_inicial][y_inicial] = ' '
+                    raise Exception('No hay camino para mover la torre')
+        else:
+            raise Exception('Movimiento invalido para la torre')
+        if tab[y_final][x_inicial] == ' ' \
+                or (tab[y_inicial][x_inicial].islower() != tab[y_final][x_inicial].islower()):
+            tab[y_final][x_inicial] = tab[y_inicial][x_inicial]
+            tab[y_inicial][x_inicial] = ' '
+        else:
+            raise Exception('No puedo comer mis propias piezas')
+    else:
+        raise Exception('La pieza en x = {0} y={1} no es una torre'.format(x_inicial, y_inicial))
     return tab
-
-
-def mover_reina(tablero, x_inicial, y_inicial, x_final, y_final):
-    pass
