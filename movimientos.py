@@ -127,7 +127,9 @@ def mover_alfil(tablero, x_inicial, y_inicial, x_final, y_final):
         if (x_inicial != x_final) and (y_inicial != y_final):
             for x in range(x_inicial +1, x_final):
                 if tab[x][y_final] != ' ':
-
+                    raise ValueError('El camino no es valido')
+            for y in range(y_inicial +1, y_final):
+                if tab[x_final][y] != ' ':
                     raise ValueError('El camino no es valido')
         tab[x_final][y_inicial] = 'a'
         tab[x_inicial][y_inicial] = ' '
