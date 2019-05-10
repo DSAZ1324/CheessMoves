@@ -97,8 +97,8 @@ def mover_alfil(tablero, x_inicial, y_inicial, x_final, y_final):
     :param y_final: int que representa la posicion final en Y
     :return: list of list que representa un tablero final
     """
-tab = tablero.copy()
-    if (x_inicial - y_inicial == x_final - y_final or x_inicial + y_inicial == x_final + y_final ) and tab[x_inicial][y_final]. lower() == 'a':
+    tab = tablero.copy()
+    if (x_inicial - y_inicial == x_final - y_final) and (x_inicial + y_inicial == x_final + y_final) and tab[x_inicial][y_final]. lower() == 'a':
         if x_inicial - x_final:
             for x in range(x_inicial +1, y_final):
                 if tab[x][y_inicial] != ' ':
