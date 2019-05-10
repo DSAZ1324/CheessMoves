@@ -38,7 +38,7 @@ class Test_movimientos(TestCase):
         self.assertEqual(espero, obtengo)
 
     def test_mover_alfil(self):
-            dado = [[['t', 'k', 'a', 'q', 'r', 'a', 'k', 't'],
+            dado = [[['t', 'k', ' ', 'q', 'r', 'a', 'k', 't'],
                      ['p', ' ', 'p', 'p', 'p', 'p', 'p', 'p'],
                      ['a', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
                      [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
@@ -47,8 +47,8 @@ class Test_movimientos(TestCase):
                      ['P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'],
                      ['T', 'K', 'A', 'R', 'Q', 'A', 'K', 'T']
                      ], 0, 2, 0, 2]
-            espero = [['t ', 'k', '', 'q', 'r', 'a', 'k', 't'],
-                      ['P', ' ', 'p', 'p', 'p', 'p', 'p', 'p'],
+            espero = [['t ', 'k', ' ', 'q', 'r', 'a', 'k', 't'],
+                      ['p', ' ', 'p', 'p', 'p', 'p', 'p', 'p'],
                       ['a', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
                       [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
                       [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
