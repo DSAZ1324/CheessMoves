@@ -85,3 +85,30 @@ def mover_torre(tablero, x_inicial, y_inicial, x_final, y_final):
     else:
         raise Exception('La pieza en x = {0} y={1} no es una torre'.format(x_inicial, y_inicial))
     return tab
+
+def mover_alfil(tablero, x_inicial, y_inicial, x_final, y_final):
+    """
+    (list of list, int, int, int, int) -> list of list
+
+    :param tablero: list of list que representa el tablero
+    :param x_inicial: int que representa la posicion inicial en X
+    :param y_inicial: int que representa la posicion inicial en Y
+    :param x_final: int que representa la posicion final en X
+    :param y_final: int que representa la posicion final en Y
+    :return: list of list que representa un tablero final
+    """
+tab = tablero.copy()
+    if (x_inicial - y_inicial == x_final - y_final or x_inicial + y_inicial == x_final + y_final ) and tab[x_inicial][y_final]. lower() == 'a':
+        if x_inicial - x_final:
+            for x in range(x_inicial +1, y_final):
+                if tab[x][y_inicial] != ' ':
+                    raise ValueError('El camino no es valido')
+        tab[x_final][y_inicial] = 'a'
+        tab[x_inicial][y_inicial] = ' '
+        if y_inicial - y_final:
+            for y in range(y_inicial +1, y_final):
+                if tab[x_inicial][y] != ' ':
+                    raise ValueError('El camino no es valido')
+        tab[x_inicial][y_final] = 'a'
+        tab[x_inicial][y_inicial] = ' '
+    return tab
