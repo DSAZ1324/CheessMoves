@@ -36,3 +36,25 @@ class Test_movimientos(TestCase):
 ]
         obtengo = mover_torre(dado[0], dado[1], dado[2], dado[3], dado[4])
         self.assertEqual(espero, obtengo)
+
+    def test_mover_alfil(self):
+            dado = [[['t', 'k', 'a', 'q', 'r', 'a', 'k', 't'],
+                     ['p', ' ', 'p', 'p', 'p', 'p', 'p', 'p'],
+                     ['a', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+                     [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+                     [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+                     [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+                     ['P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'],
+                     ['T', 'K', 'A', 'R', 'Q', 'A', 'K', 'T']
+                     ], 0, 2, 0, 2]
+            espero = [['t ', 'k', '', 'q', 'r', 'a', 'k', 't'],
+                      ['P', ' ', 'p', 'p', 'p', 'p', 'p', 'p'],
+                      ['a', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+                      [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+                      [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+                      [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+                      ['P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'],
+                      ['T', 'K', 'A', 'R', 'Q', 'A', 'K', 'T']
+                      ]
+            obtengo = mover_alfil(dado[0], dado[1], dado[2], dado[3], dado[4])
+            self.assertEqual(espero, obtengo)
